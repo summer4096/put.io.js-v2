@@ -3,9 +3,16 @@ put.io.js-v2
 
 Node-only javascript library for the put.io API. I'd make it work in the browser too, but this version of the api is incompatible with such tomfoolery.
 
+Install
+-------
+	npm install put.io-v2
+
+Use
+---
+
 It works like this.
 
-	var PutIO = require('./putio');
+	var PutIO = require('put.io-v2');
 	
 	var api = new PutIO(oauth_token);
 	

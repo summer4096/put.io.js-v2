@@ -1,0 +1,17 @@
+{
+  "author": "Tristan Davies <npm@tristan.io> (http://tristan.io)",
+  "name": "put.io-v2",
+  "description": "API v2 Library for put.io",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/devTristan/put.io.js-v2.git"
+  },
+  "main": "./putio",
+  "engines": {
+    "node": "~0.8.1"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "contributors": []
+}
