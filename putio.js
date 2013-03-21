@@ -16,12 +16,24 @@ var PutIO = function(token){
 		if (typeof query == 'function') {callback = query; query = {};}
 		callback = def(callback, noop);
 		query = def(query, {});
+    	var body = null;
+	    if (method == 'POST') {
+	    	body = url.format({query: query}).substr(1);
+	    	query = {};
+	    }
 		query.oauth_token = token;
-		
+
 		var options = url.parse(api+path);
 		options.method = method;
 		options.path += url.format({'query': query});
-		https.request(options, function(res){
+	    options.headers = {
+	    	Accept: 'application/json'
+	    };
+	    if (body) {
+	        options.headers['Content-Length'] = body.length;
+	        options.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8';
+	    }
+		var req = https.request(options, function(res){
 			var data = '';
 			
 			res.on('data', function(chunk){
@@ -30,7 +42,11 @@ var PutIO = function(token){
 			res.on('end', function(){
 				callback(JSON.parse(data));
 			});
-		}).end();
+		});
+	    if (body) {
+	        req.write(body + "\n\n");
+	    }
+	    req.end();
 	};
 	var get = function(path, query, callback){
 		request('GET', path, query, callback);
