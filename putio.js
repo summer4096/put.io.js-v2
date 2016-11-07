@@ -141,6 +141,9 @@ var PutIO = function(token){
 		
 		post('transfers/cancel', {'transfer_ids': transfer_ids}, callback);
 	};
+	this.transfers.clean = function (callback) {
+		post('transfers/clean',callback);
+	}
 	
 	this.friends = {};
 	this.friends.list = function(callback){
