@@ -1,6 +1,8 @@
 put.io.js-v2
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/summer4096/put.io.js-v2.svg)](https://greenkeeper.io/)
+
 [![NPM](https://nodei.co/npm/put.io-v2.png)](https://nodei.co/npm/put.io-v2/)
 
 Node-only javascript library for the put.io API. I'd make it work in the browser too, but this version of the api is incompatible with such tomfoolery.
